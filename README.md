@@ -1,5 +1,7 @@
 # Always Ngoding
 
+![Banner Always Ngoding](media/website/banner-readme.svg)
+
 **Platform belajar pemrograman interaktif berbahasa Indonesia, dengan gamifikasi dan komunitas dalam satu website.**
 
 Always Ngoding bermula dari project pribadi pada 2018 untuk mengasah kemampuan programming sekaligus membantu orang yang baru belajar ngoding. Project ini berkembang menjadi tempat belajar gratis, berbagi artikel, berdiskusi, mengumpulkan pencapaian, dan memperoleh sertifikat.
