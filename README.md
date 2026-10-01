@@ -8,6 +8,8 @@ Source code ini dibagikan untuk melanjutkan manfaat dari perjalanan tersebut: di
 
 **Ingin mendukung founder dan perjalanan project ini? Kunjungi [GitHub ZihxS](https://github.com/ZihxS) untuk melihat opsi sponsor dan dukungan yang tersedia.**
 
+Yuk, mampir dan sapa juga di **[TikTok @msalehsolahudin](https://www.tiktok.com/@msalehsolahudin)**! Kalau suka, boleh sekalian follow. 💙
+
 > Kode asli menggunakan **Always Ngoding Source-Available License 1.0**. Penggunaan, modifikasi, distribusi gratis, dan pemakaian internal bisnis diperbolehkan. Penjualan ulang serta penyediaan aplikasi atau layanan berbayar kepada pelanggan eksternal dilarang. Karena pembatasan tersebut, lisensi ini bukan lisensi open source menurut definisi OSI. Baca [ketentuan lisensi](#lisensi).
 
 ## Daftar isi
@@ -765,8 +767,8 @@ Nama dan peran berikut mengikuti halaman **Tim** pada aplikasi:
 | Nama | Peran |
 | --- | --- |
 | [Muhammad Saleh Solahudin / ZihxS](https://github.com/ZihxS) | Founder of Always Ngoding |
-| Karmila Sriwulan | Co-founder of Always Ngoding |
-| Dhimas MS Putra | Co-founder of Always Ngoding |
+| [Karmila Sriwulan](https://www.tiktok.com/@alew_milew) | Co-founder of Always Ngoding |
+| [Dhimas MS Putra](https://github.com/dhimas2jz) | Co-founder of Always Ngoding |
 
 Terima kasih kepada komunitas yang pernah belajar, berdiskusi, berbagi tulisan, memberi masukan, dan mendukung Always Ngoding. Perjalanan project ini juga terbantu oleh para pembuat framework, library, aset, dan layanan yang digunakan; karya mereka tetap mengikuti kredit serta lisensi masing-masing.
 
@@ -775,6 +777,8 @@ Halaman tim dapat dilihat pada `/tim`; source-nya ada di [tim.php](aplikasi/view
 ## Sponsor dan dukungan
 
 Jika project ini pernah membantu Anda belajar atau Anda ingin mendukung founder, kunjungi **[https://github.com/ZihxS](https://github.com/ZihxS)** untuk melihat opsi sponsor/dukungan yang tersedia pada profil tersebut.
+
+Lagi mampir ke project ini? Sekalian mampir juga ke **[TikTok @msalehsolahudin](https://www.tiktok.com/@msalehsolahudin)**, ya! Kalau suka, boleh follow dan sapa di sana. Terima kasih sudah ikut mendukung perjalanan Always Ngoding. 💙
 
 Dukungan juga bisa diberikan dengan membagikan project, memberi star di repository GitHub, melaporkan bug dengan jelas, memperbaiki dokumentasi, atau mengirim pull request. Dukungan tidak menjanjikan jadwal maintenance atau layanan tertentu.
 

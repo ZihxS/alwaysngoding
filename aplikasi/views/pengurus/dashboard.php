@@ -417,12 +417,11 @@
                     Dibuatnya Always Ngoding karena termotivasi dan terinspirasi oleh banyak website belajar online, namun belum ada website belajar online yang sangat nyaman seperti Always Ngoding ini dan tentunya konten konten di Always Ngoding didominasi menggunakan bahasa indonesia yang bertujuan untuk mudah dimengerti oleh masa depan indonesia.
                   </p>
                   <p>
-                    Terima kasih untuk :
+                    Terima kasih untuk:
                     <ol>
-                      <li>Allah S.W.T</li>
-                      <li>Nabi Muhammad SAW</li>
+                      <li>Semua Yang Berkontribusi Untuk Always Ngoding</li>
                       <li>Kedua Orang Tua Muhammad Saleh Solahudin</li>
-                      <li>Kekasih Muhammad Saleh Solahudin : Karmila Sriwulan</li>
+                      <li>Kekasih Muhammad Saleh Solahudin: <b>Karmila Sriwulan</b></li>
                     </ol>
                   </p>
                   <p>Semoga <b>Always Ngoding</b> ini benar-benar sangat berguna untuk banyak orang, aamiin.</p>
