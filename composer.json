@@ -1,0 +1,12 @@
+{
+    "license": "proprietary",
+    "require": {
+		"php": ">=7.4 <8.4",
+        "setasign/fpdi": "^2.3",
+        "phpmailer/phpmailer": "^6.2",
+        "abraham/twitteroauth": "^2.0",
+        "vlucas/phpdotenv": "^5.5",
+        "freepik-labs/dom-purify": "^0.2.6",
+        "ezyang/htmlpurifier": "^4.17"
+    }
+}

@@ -1,0 +1,5 @@
+# False positive: model alias mapping, not a credential.
+aplikasi/config/autoload.php:generic-api-key:41
+
+# False positive: CodeIgniter encryption implementation comment, not a key.
+sistem/libraries/Encryption.php:generic-api-key:803

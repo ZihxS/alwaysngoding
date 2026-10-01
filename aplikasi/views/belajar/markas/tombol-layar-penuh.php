@@ -1,0 +1,1 @@
+<span class="button-min-max"><i class="fa fa-expand fa-lg" aria-hidden="true"></i></span>

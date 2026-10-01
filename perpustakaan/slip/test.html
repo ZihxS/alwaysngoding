@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf8">
+<title>Slip.js</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+<head>
+    <style>
+        body {
+            background: #eee;
+            font-family: Helvetica, Arial, sans-serif;
+            max-width: 40em;
+            margin: 0 auto;
+            padding: 5px;
+        }
+
+        .slip-reordering {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.45);
+        }
+
+        .slip-swiping-container {
+            overflow-x: hidden;
+        }
+
+        .slippylist li {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            cursor: grab;
+        }
+
+        html .slippylist li:focus {
+            cursor: grabbing;
+        }
+
+        .slippylist {
+            clear:left;
+            margin: 1em;
+            padding: 0 0 1px;
+        }
+
+        .slippylist li {
+            display: block;
+            position: relative;
+            border: 1px solid black;
+            background: white;
+            margin: 0; padding: 0 1em;
+            border-radius: 3px;
+            margin-bottom: -1px;
+            max-width: 100%;
+            line-height: 3;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <ol id="test" class="slippylist">
+        <li class="ns">iOS Safari</li>
+        <li class="ns">Mobile Chrome</li>
+        <li class="ns">Android Firefox</li>
+        <li class="ns">Opera Presto and Blink</li>
+    </ol>
+</body>
+<script src="slip.js"></script>
+    <script>
+    	let arr = ['a','b','c','d'];
+
+        function setupSlip(list) {
+            list.addEventListener('slip:beforewait', function(e){if (e.target.classList.contains('ns')) e.preventDefault();},false);
+            list.addEventListener('slip:reorder', function(e){
+            	console.log(arr);
+                const movedItem = arr[e.detail.originalIndex];
+                arr.splice(e.detail.originalIndex,1);
+                arr.splice(e.detail.spliceIndex,0,movedItem);
+                e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+                console.log(arr);
+                return false;
+            }, false);
+            return new Slip(list);
+        }
+        setupSlip(document.getElementById('test'));
+    </script>
+</html>

@@ -1,0 +1,22 @@
+title = "Always Ngoding public source checks"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Exclude SQL dumps from Gitleaks"
+paths = ['''(?i)\.sql(?:\.gz)?$''']
+
+[[rules]]
+id = "php-literal-mail-password"
+description = "A literal PHPMailer/SMTP password must stay outside source"
+regex = '''(?i)(?:->(?:Password|smtp_pass(?:word)?)|\[['"]smtp_pass(?:word)?['"]\])\s*=\s*['"]([^'"\r\n]+)['"]'''
+secretGroup = 1
+keywords = ["password", "smtp_pass"]
+
+[[rules]]
+id = "discord-webhook-url"
+description = "Discord webhook URLs contain a secret token"
+regex = '''(?i)https://(?:discord|discordapp)\.com/api(?:/v[0-9]+)?/webhooks/[0-9]+/([a-z0-9_-]+)'''
+secretGroup = 1
+keywords = ["webhooks"]

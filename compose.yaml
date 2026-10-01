@@ -1,0 +1,149 @@
+name: alwaysngoding
+
+services:
+  database-seed:
+    build:
+      context: .
+      target: database-seed
+    environment:
+      CI_ENV: development
+      DEV_DB_DATABASE: ${DOCKER_DB_DATABASE:-alwaysngoding}
+      DEV_DB_USERNAME: ${DOCKER_DB_USERNAME:-alwaysngoding}
+      DEV_DB_DBPREFIX: ${DOCKER_DB_PREFIX-app_}
+    volumes:
+      - database-seed:/generated
+    restart: "no"
+
+  db:
+    build:
+      context: .
+      target: database
+    command: ["--skip-log-bin", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_general_ci"]
+    environment:
+      MYSQL_DATABASE: ${DOCKER_DB_DATABASE:-alwaysngoding}
+      MYSQL_USER: ${DOCKER_DB_USERNAME:-alwaysngoding}
+      MYSQL_PASSWORD: ${DOCKER_DB_PASSWORD:-local-development-password}
+      MYSQL_ROOT_PASSWORD: ${DOCKER_DB_ROOT_PASSWORD:-local-development-root-password}
+      MYSQL_INITDB_SKIP_TZINFO: "1"
+    depends_on:
+      database-seed:
+        condition: service_completed_successfully
+    volumes:
+      - database:/var/lib/mysql
+      - database-seed:/docker-seed:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$${MYSQL_PASSWORD}\" mysql --protocol=TCP --host=127.0.0.1 --user=\"$${MYSQL_USER}\" --database=\"$${MYSQL_DATABASE}\" --execute='SELECT 1' --silent >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      start_period: 60s
+      retries: 30
+    restart: unless-stopped
+
+  socket:
+    build:
+      context: .
+      target: socket
+    command: ["node", "/usr/local/bin/alwaysngoding-socket-dev.js"]
+    environment:
+      PORT: "1315"
+      SOCKET_ALLOWED_ORIGINS: http://localhost:${DOCKER_APP_PORT:-8080},http://127.0.0.1:${DOCKER_APP_PORT:-8080}
+      SOCKET_MAX_HTTP_BUFFER_SIZE: "1000000"
+    ports:
+      - "127.0.0.1:${DOCKER_SOCKET_PORT:-1315}:1315"
+    volumes:
+      - ./socket:/app
+      - /app/node_modules
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:1315/socket.io/?EIO=4&transport=polling', r => { r.resume(); process.exit(r.statusCode === 200 ? 0 : 1); }).on('error', () => process.exit(1));"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+    restart: unless-stopped
+
+  app:
+    build:
+      context: .
+      target: app
+    environment:
+      CI_ENV: development
+      APP_SHOW_DEPRECATIONS: "false"
+      APP_URL: http://localhost:${DOCKER_APP_PORT:-8080}
+      ANG_SOCKET_URL: http://localhost:${DOCKER_SOCKET_PORT:-1315}
+      ANG_SOCKET_TRANSPORT_POLLING_URL: http://localhost:${DOCKER_SOCKET_PORT:-1315}
+      DEV_DB_HOSTNAME: db
+      DEV_DB_PORT: "3306"
+      DEV_DB_DATABASE: ${DOCKER_DB_DATABASE:-alwaysngoding}
+      DEV_DB_USERNAME: ${DOCKER_DB_USERNAME:-alwaysngoding}
+      DEV_DB_PASSWORD: ${DOCKER_DB_PASSWORD:-local-development-password}
+      DEV_DB_DBPREFIX: ${DOCKER_DB_PREFIX-app_}
+      APP_ENCRYPTION_KEY: ${DOCKER_APP_ENCRYPTION_KEY:-}
+      COOKIE_SECURE: "false"
+      GCAPTCHA: ${GCAPTCHA:-no}
+      RECAPTCHA_SITE_KEY: ${RECAPTCHA_SITE_KEY:-}
+      RECAPTCHA_SECRET_KEY: ${RECAPTCHA_SECRET_KEY:-}
+      RECAPTCHA_LANG: ${RECAPTCHA_LANG:-id}
+      MIDTRANS_SERVER_KEY: ${MIDTRANS_SERVER_KEY:-}
+      MIDTRANS_CLIENT_KEY: ${MIDTRANS_CLIENT_KEY:-}
+      MIDTRANS_IS_PRODUCTION: ${MIDTRANS_IS_PRODUCTION:-false}
+      MIDTRANS_SNAP_URL: ${MIDTRANS_SNAP_URL:-}
+      SMTP_ENABLED: ${SMTP_ENABLED:-false}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_AUTH: ${SMTP_AUTH:-true}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_ENCRYPTION: ${SMTP_ENCRYPTION-tls}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Always Ngoding}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      TWITTER_CONSUMER_KEY: ${TWITTER_CONSUMER_KEY:-}
+      TWITTER_CONSUMER_SECRET: ${TWITTER_CONSUMER_SECRET:-}
+      TWITTER_ACCESS_TOKEN: ${TWITTER_ACCESS_TOKEN:-}
+      TWITTER_ACCESS_TOKEN_SECRET: ${TWITTER_ACCESS_TOKEN_SECRET:-}
+      GLOT_API_TOKEN: ${GLOT_API_TOKEN:-}
+    depends_on:
+      db:
+        condition: service_healthy
+      socket:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${DOCKER_APP_PORT:-8080}:80"
+    volumes:
+      - .:/var/www/html
+      # Dependencies stay inside Docker; renew them when rebuilding the images.
+      - /var/www/html/vendor
+      # Keep MAMP's private .env separate from the Docker environment.
+      - ./.env.example:/var/www/html/.env:ro
+      - app-cache:/var/www/html/aplikasi/cache
+      - app-logs:/var/www/html/aplikasi/logs
+      - media:/var/www/html/media
+      # Source assets update immediately; uploaded files remain in the media volume.
+      - ./media/background:/var/www/html/media/background:ro
+      - ./media/belajar:/var/www/html/media/belajar:ro
+      - ./media/hasil:/var/www/html/media/hasil:ro
+      - ./media/lang:/var/www/html/media/lang:ro
+      - ./media/motivator:/var/www/html/media/motivator:ro
+      - ./media/tim:/var/www/html/media/tim:ro
+      - ./media/website:/var/www/html/media/website:ro
+      - filemanager-source:/var/www/html/perpustakaan/filemanager/source
+      - filemanager-thumbs:/var/www/html/perpustakaan/filemanager/thumbs
+      - app-state:/var/lib/alwaysngoding
+      - backups:/var/www/html/perpustakaan/berkas
+    healthcheck:
+      test: ["CMD", "php", "-r", "$$r = @file_get_contents('http://127.0.0.1/'); exit($$r !== false && strpos($$r, 'Always Ngoding') !== false && strpos($$r, 'A PHP Error was encountered') === false && strpos($$r, 'An uncaught Exception was encountered') === false ? 0 : 1);"]
+      interval: 10s
+      timeout: 10s
+      start_period: 20s
+      retries: 15
+    restart: unless-stopped
+
+volumes:
+  database:
+  database-seed:
+  media:
+  filemanager-source:
+  filemanager-thumbs:
+  app-state:
+  backups:
+  app-cache:
+  app-logs:

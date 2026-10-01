@@ -1,0 +1,90 @@
+Always Ngoding Source-Available License 1.0
+
+Copyright (c) 2026 Muhammad Saleh Solahudin.
+Other copyright notices remain with their respective owners.
+
+1. Scope and definitions
+
+The Licensor is Muhammad Saleh Solahudin, solely for rights he owns or is
+authorized to license. The Software is the original Always Ngoding project
+code and accompanying project documentation that the Licensor offers under
+these terms. Third-party components, their documentation, and their assets
+are excluded and remain subject to their own licenses.
+
+Modified Software means a modification, adaptation, or derivative work of
+the Software. These terms apply to covered Software within Modified Software;
+they do not transfer ownership of a modifier's original contributions.
+
+Internal Business Use means use by an organization for its own operations,
+including use by its owners, employees, and contractors acting on its behalf,
+without offering the Software or Modified Software as a product or service
+to external customers. Charging external customers for access to the Software
+or Modified Software is not Internal Business Use.
+
+2. Permission
+
+Subject to these terms, the Licensor grants you a worldwide, non-exclusive,
+royalty-free copyright license to use, study, copy, and modify the Software,
+and to distribute the Software and Modified Software free of charge.
+
+Permitted uses include personal use, learning, research, free public services,
+and Internal Business Use, including Internal Business Use by a for-profit
+organization. You are not required to publish modifications used privately.
+
+Every distribution containing any covered part of the Software must retain
+this license and the applicable copyright and attribution notices. Recipients
+receive their permission to use covered Software directly under these terms.
+You may not grant them rights to covered Software that these terms do not
+grant.
+
+3. No sale or paid application services
+
+You may not sell, resell, rent, or license for a fee the Software or Modified
+Software, in source, executable, packaged, or any other form. This prohibition
+also applies when the Software or Modified Software is renamed or included
+in a bundle offered for payment.
+
+You may not offer external customers access to, or use of, the Software or
+Modified Software in exchange for payment. Prohibited services include paid
+hosting of the application, software-as-a-service, subscriptions, paid courses
+delivered through the application, paywalled application features, and access
+that requires purchasing a paid bundle or plan. Modifying or rebranding the
+Software does not remove this prohibition.
+
+An organization may use the Software internally while charging for its own
+separate goods or services, provided it does not sell the Software or Modified
+Software or provide external customers paid access to their functionality.
+Paying for infrastructure used for an otherwise permitted internal deployment
+does not by itself make that organization's use a prohibited paid service.
+
+4. Third-party rights and other rights
+
+These terms do not replace or restrict rights granted under the separate
+licenses of third-party components. You must also comply with their licenses
+when using or distributing those components. In particular, permission for
+Internal Business Use of the original project code does not grant permission
+for commercial use of a third-party component whose own license forbids it.
+
+No trademark rights or rights to a person's name, image, or personal data are
+granted. No rights are granted beyond the rights that the Licensor is entitled
+to license. These terms do not limit uses permitted by applicable law without
+the Licensor's permission.
+
+5. Termination
+
+Your permissions under this license terminate if you violate its conditions.
+After termination, you must stop exercising the permissions granted by this
+license. Reinstatement requires written permission from the Licensor and
+does not waive liability for an earlier violation.
+
+6. Disclaimer
+
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, THE SOFTWARE IS PROVIDED "AS IS",
+WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+THE LICENSOR AND COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR CLAIMS, DAMAGES,
+OR OTHER LIABILITY ARISING FROM THE SOFTWARE OR ITS USE.
+
+This is a custom source-available license. It is not the MIT, Apache, GPL,
+PolyForm, or Commons Clause license, and it is not an OSI-approved open-source
+license.

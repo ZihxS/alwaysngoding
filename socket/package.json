@@ -1,0 +1,17 @@
+{
+  "name": "ang-socket",
+  "version": "1.0.0",
+  "description": "Socketnya Always Ngoding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "socket.io": "^4.8.3"
+  },
+  "author": "Muhammad Saleh Solahudin",
+  "license": "SEE LICENSE IN LICENSE"
+}

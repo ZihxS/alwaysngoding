@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule (^|/)\.(env(?:\..*)?|git)(/|$) - [F,L,NC]
+RewriteRule ^perpustakaan/berkas/ - [F,L,NC]
+# SQL templates and generated imports are never served by the application.
+RewriteRule \.sql(?:\.gz)?$ - [F,L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]

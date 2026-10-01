@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">-->
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slipjs/2.1.0/slip.min.js"></script>
+
+</head>
+
+<body>
+    <ul id="todolist">
+        <li>
+            <div class="item">
+                <div class="id">1</div>
+                <div class="task">Mom asked me not to forget to drink more water at school</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span onclick="" class="edit">edit</span>
+                    <span onclick="" class="del">del</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="item">
+                <div class="id">2</div>
+                <div class="task">Tomorrow is Linda birtyday, must go to shop today to buy the Hello Kitty as gift for her tomorrow
+                </div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">3</div>
+                <div class="task">The toys should be returned to Mary this week</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">4</div>
+                <div class="task"><del>new Comic issue out soon</del></div>
+                <div class="alter">
+                    <span class="compl done">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">5</div>
+                <div class="task">Pc game playing</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">6</div>
+                <div class="task">Anime drawing class</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">7</div>
+                <div class="task"><del>Story telling practise in school</del></div>
+                <div class="alter">
+                    <span class="compl done">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">8</div>
+                <div class="task">Ballet class every weekend afternoon</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">9</div>
+                <div class="task">Cooking class tomorrow morning</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="item">
+                <div class="id">10</div>
+                <div class="task">Visit Susan's brother this Sunday</div>
+                <div class="alter">
+                    <span class="compl">Completed</span>
+                    <span class="edit">edit</span>
+                    <span class="del">del</span>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+    <p id="note">Hold and drag to rearrange items</p>
+
+    <script>
+        todolist = document.getElementById("todolist");
+        new Slip(todolist);
+
+        todolist.addEventListener('slip:reorder', function(e) {
+            e.target.parentNode.insertBefore(e.target, e.detail.insertBefore);
+        })
+    </script>
+
+</body>
+
+</html>

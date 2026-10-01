@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /vendor/
+Disallow: /pemeliharaan
+Disallow: /*.sql$
+Disallow: /*.txt$
+Disallow: /*.pdf$
+Disallow: /*.xls$
+Disallow: /*.doc$
+Disallow: /*.xlsx$
+Disallow: /*.docx$
+
+Sitemap: /sitemap.xml

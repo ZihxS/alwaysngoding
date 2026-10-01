@@ -1,0 +1,11 @@
+{
+    "theme_color": "#DC3545",
+    "background_color": "#DC3545",
+    "display": "standalone",
+    "scope": "./",
+    "start_url": "./",
+    "name": "Always Ngoding",
+    "short_name": "Aplikasi Always Ngoding",
+    "description": "Always Ngoding adalah wadah atau tempat untuk belajar pemrograman gratis berbahasa Indonesia yang seru, mudah, aman dan tentunya sangat interaktif.",
+    "prefer_related_applications": false
+}
