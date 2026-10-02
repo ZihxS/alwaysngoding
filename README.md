@@ -6,7 +6,7 @@
 
 Always Ngoding bermula dari project pribadi pada 2018 untuk mengasah kemampuan programming sekaligus membantu orang yang baru belajar ngoding. Project ini berkembang menjadi tempat belajar gratis, berbagi artikel, berdiskusi, mengumpulkan pencapaian, dan memperoleh sertifikat.
 
-Source code ini dibagikan untuk melanjutkan manfaat dari perjalanan tersebut: dipelajari, dijalankan sendiri, dimodifikasi, dan disempurnakan bersama. Rilis ini merupakan arsip dari layanan lama yang memasuki masa maintenance dan penutupan; tidak ada jadwal maintenance, dukungan, atau pembaruan keamanan yang dijanjikan.
+Source code ini dibagikan agar bisa dipelajari, dijalankan sendiri, dimodifikasi, dan disempurnakan bersama. Rilis ini merupakan arsip dari layanan lama yang memasuki masa maintenance dan penutupan. Tidak ada jadwal maintenance, dukungan, atau pembaruan keamanan yang dijanjikan.
 
 **Ingin mendukung founder dan perjalanan project ini? Kunjungi [GitHub ZihxS](https://github.com/ZihxS) untuk melihat opsi sponsor dan dukungan yang tersedia.**
 
@@ -72,7 +72,7 @@ Fitur pembelajarannya mencakup:
 - Penambahan poin belajar dan pemeriksaan pencapaian ketika anggota membuat progress.
 - Perolehan sertifikat sesuai alur dan syarat kelas yang diimplementasikan.
 
-Materi MySQL menggunakan contoh dan ilustrasi; jangan menganggapnya sebagai terminal SQL bebas yang mengeksekusi query peserta ke database aplikasi. Nama kelas lain yang muncul dalam struktur lama, seperti jQuery atau Python, juga tidak berarti kelas tersebut sudah lengkap dan tersedia.
+Materi MySQL menggunakan contoh dan ilustrasi, bukan terminal SQL bebas untuk menjalankan query peserta ke database aplikasi. Nama kelas lain yang muncul dalam struktur lama, seperti jQuery atau Python, juga tidak berarti kelas tersebut sudah lengkap dan tersedia.
 
 ### Gamifikasi, profil, dan sertifikat
 
@@ -83,7 +83,7 @@ Materi MySQL menggunakan contoh dan ilustrasi; jangan menganggapnya sebagai term
 - **Anggota terbaik mingguan dan Hall of Fame:** pengakuan terhadap aktivitas belajar dan kontribusi komunitas.
 - **Notifikasi:** informasi tentang interaksi serta perolehan pencapaian dan sertifikat.
 
-Sertifikat memakai template PDF dan QR yang mengarah ke tautan sertifikat. Sertifikat ini merupakan bagian dari platform; bukan klaim akreditasi pendidikan atau sertifikasi profesional.
+Sertifikat memakai template PDF dan QR yang mengarah ke tautan sertifikat. Sertifikat ini merupakan bagian dari platform dan tidak menyatakan akreditasi pendidikan atau sertifikasi profesional.
 
 ### Artikel dan diskusi
 
@@ -120,7 +120,7 @@ File manager dan pengolahan gambar turut disertakan untuk kebutuhan media editor
 2. **Gamifikasi menjadi bagian dari alur belajar.** Poin, badge, progress, sertifikat, dan pengakuan mingguan mengikuti aktivitas anggota.
 3. **Materi berbahasa Indonesia dengan latihan langsung.** Pembelajaran menggabungkan penjelasan, contoh, editor, dan latihan dalam halaman kelas.
 4. **Bisa dijalankan tanpa akun layanan eksternal.** Integrasi yang belum dikonfigurasi menyembunyikan UI terkait dan ditangani juga di server.
-5. **Database dapat disesuaikan melalui environment.** Nama database dan prefix tabel dirender dari template SQL; prefix kosong juga didukung.
+5. **Database dapat disesuaikan melalui environment.** Nama database dan prefix tabel dirender dari template SQL. Prefix kosong juga didukung.
 6. **Docker untuk pengembangan lokal.** Kode dibagikan langsung ke container, sehingga perubahan halaman cukup dilihat dengan refresh browser.
 7. **Arsip pengalaman platform nyata.** Source mempertahankan fitur serta pola pengembangan dari perjalanan project, dengan data produksi pengguna dikeluarkan dari rilis.
 
@@ -130,7 +130,7 @@ Database memiliki tiga nilai role: `anggota`, `admin`, dan `superadmin`. Pengunj
 
 | Role | Akses utama | Area |
 | --- | --- | --- |
-| Tamu | Melihat halaman publik, daftar kelas, artikel, diskusi, lowongan, profil publik, dan halaman tim; login atau mendaftar jika pendaftaran tersedia. | Website publik |
+| Tamu | Melihat halaman publik, daftar kelas, artikel, diskusi, lowongan, profil publik, dan halaman tim. Bisa login atau mendaftar jika pendaftaran tersedia. | Website publik |
 | `anggota` | Mengikuti pembelajaran dengan progress akun, berinteraksi, mengelola profil dan konten sendiri, melihat pencapaian/sertifikat, serta menyampaikan masukan. | `/anggota` dan website publik |
 | `admin` | Masuk ke panel pengurus dan menangani pengelolaan konten/komunitas yang tersedia bagi admin. | `/area-pengurus` |
 | `superadmin` | Akses pengurus ditambah fitur khusus pengguna/role, pencapaian, sertifikat, periklanan, data donasi, konfigurasi, dan backup. | `/area-pengurus` |
@@ -178,7 +178,7 @@ Untuk mencoba pengalaman anggota tanpa SMTP, masuk sebagai superadmin, buat akun
  +--------------------+   +------------------------+  +--------------------+
 ```
 
-PHP menangani halaman, validasi, autentikasi, otorisasi, dan perubahan data melalui MySQL. JavaScript/AJAX menangani interaksi pada halaman. Socket.IO menyampaikan event pembaruan agar bagian UI terkait dapat diperbarui; database tetap dikelola melalui aplikasi PHP.
+PHP menangani halaman, validasi, autentikasi, otorisasi, dan perubahan data melalui MySQL. JavaScript/AJAX menangani interaksi pada halaman. Socket.IO menyampaikan event pembaruan agar bagian UI terkait dapat diperbarui. Database tetap dikelola melalui aplikasi PHP.
 
 ### Alur pengguna
 
@@ -244,27 +244,27 @@ Versi berikut merujuk pada source, lockfile, dan konfigurasi Docker yang diserta
 
 | Teknologi | Versi / penggunaan |
 | --- | --- |
-| PHP | Docker memakai **8.3**; gunakan PHP **8.2 atau 8.3** untuk dependency Composer yang terkunci. |
+| PHP | Docker memakai **8.3**. Gunakan PHP **8.2 atau 8.3** untuk dependency Composer yang terkunci. |
 | CodeIgniter | **3.1.10**, framework MVC pada folder `sistem/`. |
 | Apache | Web server dari image `php:8.3-apache-bookworm`, dengan rewrite dan konfigurasi akses file. |
-| MySQL | Docker memakai **8.4**, koneksi aplikasi melalui `mysqli`; schema memakai view, trigger, dan stored procedure. |
+| MySQL | Docker memakai **8.4** dengan koneksi aplikasi melalui `mysqli`. Schema memakai view, trigger, dan stored procedure. |
 | Node.js | Docker memakai **22 Alpine** untuk layanan socket. |
 | Express | **4.22.3** pada lockfile socket. |
 | Socket.IO | **4.8.3**, event pembaruan melalui WebSocket/HTTP polling. |
-| Python | Python 3 untuk generator SQL; image seed memakai **3.13 Alpine**. Tidak menjadi runtime website. |
+| Python | Python 3 untuk generator SQL. Image seed memakai **3.13 Alpine**. Tidak menjadi runtime website. |
 | Composer / npm | Pengelolaan dependency PHP dan Node.js, dengan lockfile. |
 | Docker Compose / Make | Menjalankan layanan lokal dan menyediakan shortcut perintah. |
 
 ### Antarmuka dan editor
 
-- HTML, CSS, JavaScript, jQuery, dan AJAX; halaman dirender oleh PHP.
+- HTML, CSS, JavaScript, jQuery, dan AJAX dengan halaman yang dirender oleh PHP.
 - Bootstrap **4.5.2** pada website publik, serta tema AdminBSB/Bootstrap pada panel pengurus.
 - CodeMirror **5.55.0** untuk editor kode pembelajaran.
 - CKEditor **4.5.10** untuk editor konten.
 - Komponen antarmuka lain yang dibundel, seperti DataTables, SweetAlert, dan ikon.
 - ResponsiveFilemanager **9.14.0** untuk pengelolaan berkas editor.
 
-Project tidak memerlukan proses build SPA atau bundler frontend untuk menjalankan halaman utamanya. Sebagian aset/library frontend adalah versi legacy; pembaruannya merupakan area kontribusi yang berguna.
+Project tidak memerlukan proses build SPA atau bundler frontend untuk menjalankan halaman utamanya. Sebagian aset/library frontend masih memakai versi lama dan bisa diperbarui melalui kontribusi.
 
 ### Dependency PHP utama
 
@@ -277,7 +277,7 @@ Project tidak memerlukan proses build SPA atau bundler frontend untuk menjalanka
 | `freepik-labs/dom-purify` | 0.2.6 | Pengolahan/sanitasi HTML. |
 | `abraham/twitteroauth` | 2.0.1 | Integrasi posting Twitter legacy. |
 
-Dependency lain dicatat pada [composer.lock](composer.lock) dan [socket/package-lock.json](socket/package-lock.json). Ada juga library legacy yang dibundel langsung, termasuk pengolahan PDF/Excel; kompatibilitasnya perlu diperhatikan saat memperbarui runtime.
+Dependency lain dicatat pada [composer.lock](composer.lock) dan [socket/package-lock.json](socket/package-lock.json). Ada juga library legacy yang dibundel langsung, termasuk pengolahan PDF/Excel. Perhatikan kompatibilitasnya saat memperbarui runtime.
 
 ## Struktur project
 
@@ -320,7 +320,7 @@ Docker merupakan cara paling praktis untuk menjalankan project ini di lokal. PHP
 ### 1. Persiapan
 
 - Install Docker beserta Docker Compose, lalu jalankan Docker engine. Docker Desktop sudah menyertakan Compose.
-- Install Git untuk mengambil repository. `make` diperlukan jika ingin memakai shortcut Makefile; perintah Compose langsung tetap tersedia.
+- Install Git untuk mengambil repository. `make` diperlukan jika ingin memakai shortcut Makefile. Perintah Compose juga bisa dijalankan langsung.
 - Pastikan port `8080` dan `1315` belum digunakan, atau sesuaikan di `.env.docker`.
 - Koneksi internet diperlukan pada build pertama untuk mengunduh image dan dependency.
 
@@ -373,7 +373,7 @@ Build pertama membutuhkan waktu lebih lama. Layanan seed membuat SQL, MySQL meng
 
 Login pengurus dengan **ZihxS / admin123**. Untuk akun anggota lokal, lihat [role dan hak akses](#role-dan-hak-akses).
 
-Port aplikasi dan socket dibuka hanya pada loopback mesin lokal. Port MySQL tidak dipublikasikan ke host; aplikasi mengaksesnya melalui jaringan internal Compose.
+Port aplikasi dan socket dibuka hanya pada loopback mesin lokal. Port MySQL tidak dipublikasikan ke host. Aplikasi mengaksesnya melalui jaringan internal Compose.
 
 ### 4. Mengedit file saat container berjalan
 
@@ -418,12 +418,12 @@ Gunakan jalur ini jika ingin menjalankan aplikasi dengan Apache/MAMP atau stack 
 ### Kebutuhan
 
 - PHP **8.2 atau 8.3** dan Composer. Walaupun rentang pada `composer.json` masih mencantumkan PHP lama, lockfile saat ini membutuhkan PHP 8.2 ke atas dan tidak mendukung PHP 8.4.
-- Ekstensi PHP seperti `mysqli`, `mbstring`, `gd`, `zip`, `bcmath`, `exif`, dan dukungan session/OpenSSL; image Docker juga menyediakan `pdo_mysql` serta OPcache.
+- Ekstensi PHP seperti `mysqli`, `mbstring`, `gd`, `zip`, `bcmath`, `exif`, dan dukungan session/OpenSSL. Image Docker juga menyediakan `pdo_mysql` serta OPcache.
 - Apache dengan `mod_rewrite` dan izin membaca `.htaccess` (`AllowOverride`).
-- MySQL; lingkungan Docker memakai MySQL 8.4.
+- MySQL. Lingkungan Docker memakai MySQL 8.4.
 - Python 3 untuk merender SQL.
-- Node.js dan npm untuk layanan socket; Docker memakai Node.js 22.
-- `make` jika ingin memakai `make db`; generator Python dapat dipanggil langsung.
+- Node.js dan npm untuk layanan socket. Docker memakai Node.js 22.
+- `make` jika ingin memakai `make db`. Generator Python juga bisa dipanggil langsung.
 
 ### 1. Konfigurasi dan dependency PHP
 
@@ -450,7 +450,7 @@ DEV_DB_PASSWORD=isi-password-database-lokal
 DEV_DB_DBPREFIX=app_
 ```
 
-`APP_URL` harus sesuai alamat serta subfolder project yang benar. Pada konfigurasi MAMP tertentu, port MySQL adalah `8889`, bukan `3306`; periksa pengaturan MAMP Anda.
+`APP_URL` harus sesuai alamat serta subfolder project yang benar. Pada konfigurasi MAMP tertentu, port MySQL adalah `8889`, bukan `3306`. Periksa pengaturan MAMP Anda.
 
 Buat encryption key acak, lalu salin hasilnya ke `APP_ENCRYPTION_KEY` pada `.env`:
 
@@ -480,7 +480,7 @@ Import melalui phpMyAdmin atau CLI, menggunakan akun database aplikasi. Contoh b
 mysql --host=127.0.0.1 --port=3306 --user=alwaysngoding_dev --password alwaysngoding_dev < db.sql
 ```
 
-CLI meminta password secara interaktif. Sesuaikan host, port, username, dan nama database. Template menyertakan `CREATE DATABASE IF NOT EXISTS` dan `USE`; pastikan database sudah disiapkan atau akun memiliki izin yang diperlukan.
+CLI meminta password secara interaktif. Sesuaikan host, port, username, dan nama database. Template menyertakan `CREATE DATABASE IF NOT EXISTS` dan `USE`. Pastikan database sudah disiapkan atau akun memiliki izin yang diperlukan.
 
 Stored object menggunakan `DEFINER=CURRENT_USER`. Import sebagai akun yang dikonfigurasi untuk aplikasi agar definernya sesuai. Pada server yang mengaktifkan binary logging, pembuatan trigger/routine dapat membutuhkan konfigurasi tambahan dari administrator database.
 
@@ -500,7 +500,7 @@ PORT=1315 SOCKET_ALLOWED_ORIGINS=http://localhost:8888 node socket/ang.js
 
 Untuk contoh `APP_URL` di atas, origin adalah `http://localhost:8888`, tanpa path `/alwaysngoding`. Sesuaikan jika port atau hostname website berbeda. Beberapa origin dapat dipisahkan dengan koma.
 
-`ang.js` membaca environment proses Node.js; file `.env` PHP tidak otomatis dimuat oleh layanan tersebut. `SOCKET_ALLOWED_ORIGINS` wajib diisi atau layanan socket menolak startup.
+`ang.js` membaca environment proses Node.js. File `.env` PHP tidak otomatis dimuat oleh layanan tersebut. `SOCKET_ALLOWED_ORIGINS` wajib diisi atau layanan socket menolak startup.
 
 ### 4. Buka aplikasi
 
@@ -513,26 +513,26 @@ Buka alamat `APP_URL`, kemudian tambahkan `/area-pengurus/masuk` untuk login see
 | File | Digunakan untuk |
 | --- | --- |
 | `.env.example` | Contoh konfigurasi PHP/native yang boleh dibagikan. |
-| `.env` | Konfigurasi pribadi untuk PHP/native/MAMP; diabaikan Git. |
+| `.env` | Konfigurasi pribadi untuk PHP/native/MAMP yang diabaikan Git. |
 | `.env.docker.example` | Contoh pengaturan Docker yang boleh dibagikan. |
-| `.env.docker` | Konfigurasi pribadi untuk Make/Compose; diabaikan Git. |
+| `.env.docker` | Konfigurasi pribadi untuk Make/Compose yang diabaikan Git. |
 
 ### Pengaturan inti
 
 | Konfigurasi | Arti |
 | --- | --- |
-| `CI_ENV` | Memilih environment CodeIgniter; lokal menggunakan `development`. |
+| `CI_ENV` | Memilih environment CodeIgniter. Gunakan `development` untuk lokal. |
 | `APP_URL` | URL dasar aplikasi native, termasuk subfolder jika ada. |
 | `DEV_DB_*` | Host, port, database, username, password, dan prefix untuk development. |
 | `DB_*` | Pengaturan database untuk environment selain development. |
-| `DEV_DB_DBPREFIX` / `DB_DBPREFIX` | Prefix tabel dan objek SQL sesuai koneksi aktif; boleh kosong. |
+| `DEV_DB_DBPREFIX` / `DB_DBPREFIX` | Prefix tabel dan objek SQL sesuai koneksi aktif. Boleh kosong. |
 | `APP_ENCRYPTION_KEY` | Key privat aplikasi native. |
 | `ANG_SOCKET_URL` / `ANG_SOCKET_TRANSPORT_POLLING_URL` | Alamat layanan socket yang dapat diakses browser. |
 | `SOCKET_ALLOWED_ORIGINS` | Allowlist origin aplikasi pada proses Node.js. |
-| `SOCKET_MAX_HTTP_BUFFER_SIZE` | Batas ukuran payload socket; default contoh `1000000` byte. |
+| `SOCKET_MAX_HTTP_BUFFER_SIZE` | Batas ukuran payload socket dengan nilai bawaan `1000000` byte pada contoh konfigurasi. |
 | `SESSION_COOKIE_NAME`, `CSRF_TOKEN_NAME`, `CSRF_COOKIE_NAME` | Nama cookie session dan token/cookie CSRF. |
-| `COOKIE_SECURE`, `COOKIE_HTTPONLY` | Pengaturan cookie; `COOKIE_SECURE=false` untuk HTTP lokal. |
-| `APP_SHOW_DEPRECATIONS` | Mengatur output peringatan deprecation development; Docker menonaktifkannya untuk runtime legacy. |
+| `COOKIE_SECURE`, `COOKIE_HTTPONLY` | Pengaturan cookie. Gunakan `COOKIE_SECURE=false` untuk HTTP lokal. |
+| `APP_SHOW_DEPRECATIONS` | Mengatur output peringatan deprecation saat development. Docker menonaktifkannya untuk runtime legacy. |
 | `CACHE_ASSET_VERSIONING`, `KOMPRES` | Pengaturan aset/cache dan pemilihan aset terkompresi legacy. |
 | `SITEMAP_LASTMOD` | Nilai tanggal yang digunakan sitemap. |
 
@@ -546,22 +546,22 @@ Keputusan ketersediaan integrasi dipakai bersama oleh view dan handler server me
 
 | Integrasi | Pengaturan yang diperlukan | Saat belum dikonfigurasi |
 | --- | --- | --- |
-| reCAPTCHA | `GCAPTCHA=yes`, `RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY` | Widget dan script tidak ditampilkan; server melewati validasi CAPTCHA. Tombol login tetap tersedia. |
-| SMTP | `SMTP_ENABLED=true`, host/port dan pengirim valid, serta kredensial jika autentikasi aktif | Pendaftaran publik dan reset password melalui email disembunyikan; endpoint terkait mengembalikan HTTP 503 tanpa mengirim email atau membuat token baru. Login akun yang sudah ada tetap tersedia. |
-| Midtrans | `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY` | Tombol/script pembayaran dan ajakan donasi terkait disembunyikan; endpoint pembayaran mengembalikan HTTP 503 tanpa membuat transaksi. |
+| reCAPTCHA | `GCAPTCHA=yes`, `RECAPTCHA_SITE_KEY`, `RECAPTCHA_SECRET_KEY` | Widget dan script tidak ditampilkan. Server melewati validasi CAPTCHA. Tombol login tetap tersedia. |
+| SMTP | `SMTP_ENABLED=true`, host/port dan pengirim valid, serta kredensial jika autentikasi aktif | Pendaftaran publik dan reset password melalui email disembunyikan. Endpoint terkait mengembalikan HTTP 503 tanpa mengirim email atau membuat token baru. Login akun yang sudah ada tetap tersedia. |
+| Midtrans | `MIDTRANS_SERVER_KEY`, `MIDTRANS_CLIENT_KEY` | Tombol/script pembayaran dan ajakan donasi terkait disembunyikan. Endpoint pembayaran mengembalikan HTTP 503 tanpa membuat transaksi. |
 | Discord | `DISCORD_WEBHOOK_URL` | Pengiriman aktivitas dilewati. |
 | Twitter | `TWITTER_CONSUMER_KEY`, `TWITTER_CONSUMER_SECRET`, `TWITTER_ACCESS_TOKEN`, `TWITTER_ACCESS_TOKEN_SECRET` | Posting aktivitas dilewati. |
-| Glot | `GLOT_API_TOKEN` | Tombol eksekusi remote PHP/JavaScript disembunyikan; endpoint eksekusi mengembalikan HTTP 503. Preview HTML/CSS tetap terpisah dari integrasi ini. |
+| Glot | `GLOT_API_TOKEN` | Tombol eksekusi remote PHP/JavaScript disembunyikan. Endpoint eksekusi mengembalikan HTTP 503. Preview HTML/CSS tetap terpisah dari integrasi ini. |
 
 Pengaturan tambahan:
 
 - **SMTP:** `SMTP_HOST`, `SMTP_PORT`, `SMTP_AUTH`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_ENCRYPTION`, `MAIL_FROM_ADDRESS`, dan `MAIL_FROM_NAME`. `tls` untuk STARTTLS, `ssl` untuk implicit TLS. Jika autentikasi aktif, username dan password wajib tersedia.
-- **Mail catcher lokal:** dapat menggunakan `SMTP_AUTH=false`, port layanan catcher, pengirim lokal yang valid, dan `SMTP_ENCRYPTION` kosong. Dari container, alamat host/layanan harus dapat dijangkau container; `127.0.0.1` mengarah ke container itu sendiri.
+- **Mail catcher lokal:** dapat menggunakan `SMTP_AUTH=false`, port layanan catcher, pengirim lokal yang valid, dan `SMTP_ENCRYPTION` kosong. Dari container, alamat host/layanan harus dapat dijangkau container. Alamat `127.0.0.1` mengarah ke container itu sendiri.
 - **Midtrans:** `MIDTRANS_IS_PRODUCTION=false` untuk sandbox. `MIDTRANS_SNAP_URL` boleh kosong karena aplikasi memilih URL sandbox/production sesuai flag.
 - **reCAPTCHA:** bahasa dapat diatur melalui `RECAPTCHA_LANG`.
-- **Discord:** delivery juga mengikuti kondisi environment/alur aplikasi; konfigurasi URL tidak berarti setiap aktivitas development pasti dikirim.
+- **Discord:** pengiriman juga mengikuti kondisi environment/alur aplikasi. Mengisi URL tidak berarti setiap aktivitas development pasti dikirim.
 
-Kelengkapan konfigurasi hanya menentukan apakah fitur tersedia; validitas key, akun provider, koneksi jaringan, dan kompatibilitas API tetap menentukan keberhasilan layanan eksternal.
+Kelengkapan konfigurasi hanya menentukan apakah fitur tersedia. Keberhasilan layanan eksternal tetap bergantung pada validitas key, akun provider, koneksi jaringan, dan kompatibilitas API.
 
 Untuk Docker, isi integrasi pada `.env.docker` lalu jalankan `make docker-up`. Untuk native, gunakan `.env`. Simpan webhook URL lengkap, password, token, dan secret key hanya dalam konfigurasi privat.
 
@@ -593,7 +593,7 @@ make db ENV_FILE=.env.example
 make db ENV_FILE=.env DB_SQL=/tmp/alwaysngoding-db.sql
 ```
 
-Generate hanya menyiapkan SQL; import native dilakukan terpisah. Hasil `db.sql` diabaikan Git. Simpan perubahan schema/seed yang ingin dibagikan pada template bersih, bukan pada dump database pribadi.
+Proses generate hanya menyiapkan SQL. Import native dilakukan terpisah. Hasil `db.sql` diabaikan Git. Simpan perubahan schema/seed yang ingin dibagikan pada template bersih, bukan pada dump database pribadi.
 
 Prefix untuk query manual maupun pilihan tabel backup harus mengikuti konfigurasi koneksi aktif. Hindari memasukkan prefix database tertentu langsung ke kode.
 
@@ -606,24 +606,24 @@ Jalankan dari root project:
 | Perintah | Fungsi |
 | --- | --- |
 | `make` / `make help` | Tampilkan daftar shortcut dan opsi yang tersedia. |
-| `make env` | Buat `.env` dan `.env.docker` dari contoh dengan permission privat; file yang sudah ada tetap digunakan. |
+| `make env` | Buat `.env` dan `.env.docker` dari contoh dengan permission privat. File yang sudah ada tetap digunakan. |
 | `make setup` | Jalankan `make env`, lalu build dan jalankan Docker. Shortcut untuk setup awal dari clone baru. |
 | `make db` | Generate `db.sql` dari `raw_db.sql` dan `.env`. |
 | `make generate-db` | Alias proses generate database yang sama. |
 | `make docker-up` | Build dan jalankan layanan, tunggu siap, serta perbarui volume dependency anonim. |
 | `make docker-start` | Jalankan layanan dengan image yang sudah tersedia tanpa build. Gunakan setelah stop/down jika image sebelumnya masih sesuai. |
 | `make docker-stop` | Stop container sambil mempertahankan container dan volume. Bisa memilih `SERVICE`. |
-| `make docker-down` | Stop dan hapus container/jaringan Compose; volume data tetap disimpan. |
+| `make docker-down` | Stop dan hapus container/jaringan Compose. Volume data tetap disimpan. |
 | `make docker-build` | Build image saja. Bisa memilih `SERVICE`, kemudian jalankan `docker-up` untuk menerapkannya. |
 | `make docker-restart` | Restart container yang ada tanpa menerapkan perubahan environment/image. Bisa memilih `SERVICE`. |
 | `make docker-status` | Lihat status layanan. |
-| `make docker-logs` | Ikuti log layanan; bisa memilih `SERVICE` dan jumlah baris `TAIL`. Hentikan dengan `Ctrl+C`. |
-| `make docker-logs-once` | Tampilkan log terakhir sekali lalu selesai; bisa memilih `SERVICE` dan `TAIL`. |
+| `make docker-logs` | Ikuti log layanan. Bisa memilih `SERVICE` dan jumlah baris `TAIL`. Hentikan dengan `Ctrl+C`. |
+| `make docker-logs-once` | Tampilkan log terakhir sekali lalu selesai. Bisa memilih `SERVICE` dan `TAIL`. |
 | `make docker-shell` | Buka Bash dalam container aplikasi. |
 | `make docker-socket-shell` | Buka shell dalam container socket. |
 | `make docker-db` | Buka CLI MySQL pada database aplikasi memakai kredensial container. Ketik `exit` untuk keluar. |
 | `make docker-db-backup` | Export database lengkap, termasuk routine, trigger, dan event, ke file SQL privat di host. |
-| `make docker-cache-clear` | Hapus file cache aplikasi dalam container; `index.html` dan `.htaccess` tetap dipertahankan. |
+| `make docker-cache-clear` | Hapus file cache aplikasi dalam container. File `index.html` dan `.htaccess` tetap dipertahankan. |
 | `make docker-urls` | Tampilkan URL website, login anggota/pengurus, dan socket sesuai konfigurasi container yang berjalan. |
 
 Alias pendek yang tersedia:
@@ -665,7 +665,7 @@ make docker-stop SERVICE=socket
 make docker-db-backup BACKUP_FILE=/tmp/alwaysngoding-backup.sql
 ```
 
-Make otomatis menggunakan `.env.docker` jika file tersebut ada. `--renew-anon-volumes` pada startup memperbarui dependency Composer/npm yang disimpan di volume anonim; volume bernama untuk database dan upload tetap dipertahankan.
+Make otomatis menggunakan `.env.docker` jika file tersebut ada. `--renew-anon-volumes` pada startup memperbarui dependency Composer/npm yang disimpan di volume anonim. Volume bernama untuk database dan upload tetap dipertahankan.
 
 ## Mengatasi kendala lokal
 
@@ -675,16 +675,16 @@ Make otomatis menggunakan `.env.docker` jika file tersebut ada. `--renew-anon-vo
 | Database gagal autentikasi setelah `.env.docker` diubah | Volume lama masih memakai kredensial awal. Cocokkan dengan database yang ada atau lakukan inisialisasi ulang jika seluruh data lokal boleh dihapus. |
 | Tabel tidak ditemukan setelah prefix diganti | Prefix aplikasi dan schema harus sama. Perubahan environment tidak mengganti nama tabel yang sudah diimport. |
 | Route selain halaman utama menjadi 404 pada native | Pastikan `mod_rewrite`, `AllowOverride`, `.htaccess`, dan `APP_URL` sesuai. |
-| Tampilan login tidak memiliki CAPTCHA | Normal jika integrasi reCAPTCHA belum dikonfigurasi; form login tetap bisa digunakan. |
+| Tampilan login tidak memiliki CAPTCHA | Normal jika integrasi reCAPTCHA belum dikonfigurasi. Form login tetap bisa digunakan. |
 | Tombol daftar/reset, donasi, atau run kode tidak ada | Periksa konfigurasi integrasi opsional terkait. UI tersebut sengaja disembunyikan ketika layanan belum siap. |
 | Socket tidak tersambung pada native | Pastikan Node.js berjalan, URL/port benar, dan `SOCKET_ALLOWED_ORIGINS` sesuai origin browser. |
-| Socket gagal startup karena origin kosong | Isi allowlist pada environment proses Node.js; `.env` PHP tidak otomatis dibaca oleh Node.js. |
+| Socket gagal startup karena origin kosong | Isi allowlist pada environment proses Node.js. File `.env` PHP tidak otomatis dibaca oleh Node.js. |
 | Upload gagal atau cache/log tidak dapat ditulis | Periksa izin folder runtime terhadap user web server. |
 | Container seed berstatus exited dengan kode 0 | Normal: layanan seed hanya menjalankan generator sekali, bukan server yang harus terus hidup. |
-| Edit dependency atau environment belum diterapkan | Jalankan `make docker-up`; `docker-restart` hanya me-restart container. |
+| Edit dependency atau environment belum diterapkan | Jalankan `make docker-up` karena `docker-restart` hanya me-restart container. |
 | Edit source tidak terlihat saat memakai Colima | Pastikan folder project dibagikan dengan VM, terutama jika berada di luar folder home. |
 | Konten komunitas atau bagian donatur kosong | Data produksi tidak disertakan. Bagian donatur memang disembunyikan jika tidak ada donatur. |
-| Sertifikat gagal memuat QR pada native/offline | Pembuatan QR masih memakai layanan eksternal; periksa akses jaringan dan template/berkas pendukung. |
+| Sertifikat gagal memuat QR pada native/offline | Pembuatan QR masih memakai layanan eksternal. Periksa akses jaringan dan template/berkas pendukung. |
 
 Untuk detail error lokal, lihat `make docker-logs` atau log aplikasi. Redaksi token, cookie, password, webhook URL, dan data pribadi sebelum membagikan log.
 
@@ -697,11 +697,11 @@ Beberapa hal yang perlu diketahui saat mempelajari atau memperluas project:
 - **Framework dan library legacy.** Sebagian file PHPExcel/Profiler lama tidak kompatibel secara sintaks dengan PHP 8.3. Keberadaan library tidak menjamin semua fitur legacy berjalan pada runtime modern. PHP 8.4 belum didukung dependency yang terkunci.
 - **Layanan eksternal tetap membutuhkan internet.** Sebagian aset memakai CDN, QR sertifikat dibuat melalui layanan eksternal, dan integrasi provider mengikuti ketersediaan serta kebijakan API masing-masing.
 - **Socket membutuhkan perbaikan sebelum deployment publik.** Otorisasi pengirim event dan broadcast global yang membawa token/IP perlu ditinjau dan diperbaiki. Allowlist CORS bukan pengganti autentikasi serta otorisasi event.
-- **Belum ada migrasi otomatis.** Template SQL menyiapkan instalasi awal; perubahan schema harus dikelola terpisah untuk database yang telah digunakan.
+- **Belum ada migrasi otomatis.** Template SQL menyiapkan instalasi awal. Perubahan schema harus dikelola terpisah untuk database yang telah digunakan.
 - **Ada fitur legacy/coming soon.** Entri kelas tambahan, atribut premium, dan pengajuan iklan tertentu belum merupakan fitur lengkap yang bisa dijanjikan kepada pengguna.
 - **Tidak ada jaminan pemeliharaan.** Pengelola fork atau instalasi bertanggung jawab atas operasional, data, dan pembaruan versi yang mereka jalankan.
 
-Simpan secret di environment privat. Secret yang pernah terekspos harus dicabut atau dirotasi di provider; memindahkannya ke `.env` tidak membatalkan secret lama. Jangan menggunakan dump atau upload pengguna produksi sebagai data contoh.
+Simpan secret di environment privat. Secret yang pernah terekspos harus dicabut atau dirotasi di provider. Memindahkannya ke `.env` tidak membatalkan secret lama. Jangan menggunakan dump atau upload pengguna produksi sebagai data contoh.
 
 Aturan Apache yang disertakan membatasi akses HTTP ke file environment, SQL, metadata Git, backup, dan berkas internal tertentu. Jika memakai web server lain, terapkan aturan yang setara. Jika suatu fork akan dipublikasikan sebagai layanan, periksa autentikasi/role, upload dan file manager, session/CSRF, integrasi, serta keamanan socket sesuai perubahan yang dibuat.
 
@@ -724,7 +724,7 @@ Kontribusi dapat berupa perbaikan bug, penyempurnaan materi, dokumentasi, desain
    ```
 
 4. Jalankan project secara lokal, misalnya dengan Docker. Ubah bagian yang relevan dan jaga satu fokus utama dalam satu pull request.
-5. Pastikan alur yang Anda ubah dapat digunakan. Jelaskan cara verifikasi yang benar-benar dilakukan; sertakan screenshot untuk perubahan tampilan bila membantu reviewer.
+5. Pastikan alur yang Anda ubah dapat digunakan. Jelaskan cara verifikasi yang benar-benar dilakukan dan sertakan screenshot untuk perubahan tampilan bila membantu reviewer.
 6. Commit dan push branch ke fork:
 
    ```sh
@@ -739,7 +739,7 @@ Repository belum menyediakan suite pengujian otomatis yang lengkap. Script `npm 
 
 ### Kebiasaan yang membantu review
 
-- Ikuti pola MVC dan gaya kode di bagian yang disentuh; hindari perubahan format massal bersama perbaikan kecil.
+- Ikuti pola MVC dan gaya kode di bagian yang disentuh. Hindari perubahan format massal bersama perbaikan kecil.
 - Pertahankan pemeriksaan login, role, kepemilikan konten, dan validasi server pada handler yang diubah.
 - Gunakan prefix database dari konfigurasi, bukan nama tabel berprefix yang di-hardcode.
 - Gunakan keputusan ketersediaan integrasi yang sama pada UI dan server. Jangan hanya menyembunyikan tombol jika endpoint tetap menjalankan proses.
@@ -760,7 +760,7 @@ Repository belum menyediakan suite pengujian otomatis yang lengkap. Script `npm 
 | Database | Menyusun perubahan schema yang dapat diterapkan tanpa menghapus data dan tetap mendukung prefix configurable. |
 | Dokumentasi | Menambahkan panduan fitur, memperjelas setup untuk lingkungan lain, dan memperbarui daftar batasan sesuai perbaikan nyata. |
 
-Untuk laporan bug biasa, sertakan langkah reproduksi, hasil yang diharapkan, hasil aktual, serta informasi lingkungan yang relevan. Untuk laporan keamanan, gunakan jalur privat pada [SECURITY.md](SECURITY.md), bukan issue publik. Penerimaan kontribusi mengikuti ketersediaan pengelola arsip; tidak ada waktu respons yang dijanjikan.
+Untuk laporan bug biasa, sertakan langkah reproduksi, hasil yang diharapkan, hasil aktual, serta informasi lingkungan yang relevan. Untuk laporan keamanan, gunakan jalur privat pada [SECURITY.md](SECURITY.md), bukan issue publik. Penerimaan kontribusi mengikuti ketersediaan pengelola arsip. Tidak ada waktu respons yang dijanjikan.
 
 ## Credits
 
@@ -772,9 +772,9 @@ Nama dan peran berikut mengikuti halaman **Tim** pada aplikasi:
 | [Karmila Sriwulan](https://www.tiktok.com/@alew_milew) | Co-founder of Always Ngoding |
 | [Dhimas MS Putra](https://github.com/dhimas2jz) | Co-founder of Always Ngoding |
 
-Terima kasih kepada komunitas yang pernah belajar, berdiskusi, berbagi tulisan, memberi masukan, dan mendukung Always Ngoding. Perjalanan project ini juga terbantu oleh para pembuat framework, library, aset, dan layanan yang digunakan; karya mereka tetap mengikuti kredit serta lisensi masing-masing.
+Terima kasih kepada komunitas yang pernah belajar, berdiskusi, berbagi tulisan, memberi masukan, dan mendukung Always Ngoding. Perjalanan project ini juga terbantu oleh para pembuat framework, library, aset, dan layanan yang digunakan. Karya mereka tetap mengikuti kredit serta lisensi masing-masing.
 
-Halaman tim dapat dilihat pada `/tim`; source-nya ada di [tim.php](aplikasi/views/web/lainnya/tim.php).
+Halaman tim dapat dilihat pada `/tim`, dengan source di [tim.php](aplikasi/views/web/lainnya/tim.php).
 
 ## Sponsor dan dukungan
 
@@ -799,6 +799,6 @@ Kode dan dokumentasi asli project mengikuti **Always Ngoding Source-Available Li
 
 Modifikasi privat tidak wajib dipublikasikan. Izin penggunaan internal bisnis tidak menghapus larangan penjualan ulang atau penyediaan layanan aplikasi berbayar kepada pihak luar. Teks lisensi adalah acuan lengkap untuk ketentuannya.
 
-Kode dan aset pihak ketiga tetap memakai lisensi masing-masing. Lisensi project tidak mengganti lisensi mereka; periksa ketentuan komponen yang dibundel, termasuk ResponsiveFilemanager, sebelum menggunakannya dalam konteks bisnis atau distribusi yang berbeda.
+Kode dan aset pihak ketiga tetap memakai lisensi masing-masing. Lisensi project tidak mengganti lisensi mereka. Periksa ketentuan komponen yang dibundel, termasuk ResponsiveFilemanager, sebelum menggunakannya dalam konteks bisnis atau distribusi yang berbeda.
 
 Copyright (c) 2026 **Muhammad Saleh Solahudin**.
