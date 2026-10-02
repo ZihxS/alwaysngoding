@@ -540,6 +540,20 @@ Untuk Docker, gunakan `DOCKER_APP_PORT`, `DOCKER_SOCKET_PORT`, `DOCKER_DB_DATABA
 
 `DOCKER_APP_ENCRYPTION_KEY` boleh kosong: entrypoint menghasilkan key acak dan menyimpannya dalam volume `app-state` agar bertahan setelah restart.
 
+### Analytics dan verifikasi situs
+
+ID analytics dan token verifikasi situs diatur melalui environment:
+
+| Konfigurasi | Kegunaan |
+| --- | --- |
+| `GOOGLE_ANALYTICS_ID` | ID tag Google Analytics yang dipakai untuk memuat script dan konfigurasi `gtag`. |
+| `GOOGLE_SITE_VERIFICATION` | Token verifikasi Google untuk meta `google-site-verification`. |
+| `BING_SITE_VERIFICATION` | Token verifikasi Bing untuk meta `msvalidate.01`. |
+
+Isi dengan ID atau token milik situs Anda. Jika kosong, script analytics atau meta verifikasi terkait tidak ditampilkan. Konfigurasi contoh tidak memakai ID atau token situs lama.
+
+Untuk instalasi native/MAMP, isi di `.env`. Untuk Docker, isi di `.env.docker` lalu jalankan `make docker-up` agar konfigurasi diterapkan ke container.
+
 ### Integrasi opsional
 
 Keputusan ketersediaan integrasi dipakai bersama oleh view dan handler server melalui [integrations_helper.php](aplikasi/helpers/integrations_helper.php). Mengisi sebagian kredensial saja tidak cukup untuk mengaktifkan fitur yang memerlukan beberapa key.

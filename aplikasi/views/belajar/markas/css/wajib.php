@@ -12,10 +12,4 @@
 <?php endif; ?>
 <link rel="stylesheet" href="<?= base_url('perpustakaan/aplikasi/website.css'); ?>">
 <?php $this->load->view('web/markas/tema', NULL, FALSE); ?>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-188139073-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-188139073-1');
-</script>
+<?php $this->load->view('seo/analytics'); ?>

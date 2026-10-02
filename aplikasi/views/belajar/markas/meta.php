@@ -43,7 +43,6 @@
 <meta content="Always Ngoding - Ngoding kapan saja dan dimana saja" property="og:title">
 <meta content="Belajar, kembangkan dan manfaatkan ilmu pemrograman anda di alwaysngoding." property="og:description">
 <meta content="id_ID" property="og:locale">
-<!-- <meta content="" name="google-site-verification">
-<meta content="" name="msvalidate.01"> -->
+<?php $this->load->view('seo/verification'); ?>
 <link rel="canonical" href="<?= site_url("{$url}/bagian/{$b}"); ?>">
 <link rel="icon" href="<?= base_url('media/website/favicon.ico'); ?>" type="image/x-icon">

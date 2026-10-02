@@ -22,13 +22,7 @@
   <link rel="stylesheet" href="<?= base_url('perpustakaan/codemirror/theme/yonce.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('perpustakaan/codemirror/addon/hint/show-hint.css'); ?>">
   <link rel="stylesheet" href="<?= base_url('perpustakaan/aplikasi/website.css'); ?>">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-188139073-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-188139073-1');
-  </script>
+  <?php $this->load->view('seo/analytics'); ?>
   <script>
     let hideungMode = false;
 

@@ -69,14 +69,8 @@
   <meta content="<?= $sosmed_meta_desc; ?>" property="og:description">
 <?php endif; ?>
 <meta content="id_ID" property="og:locale">
-<meta content="2uRpa1PyBhNNgfzNI4_yN1RlAFjfaxVuenT8pHYHhbo" name="google-site-verification">
+<?php $this->load->view('seo/verification'); ?>
 <link rel="canonical" href="<?= current_url(); ?>">
 <link rel="shortcut icon" href="<?= base_url('media/website/favicon.ico'); ?>" type="image/x-icon">
 <link rel="icon" href="<?= base_url('media/website/favicon.ico'); ?>" type="image/x-icon">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-188139073-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-188139073-1');
-</script>
+<?php $this->load->view('seo/analytics'); ?>
