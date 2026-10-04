@@ -327,11 +327,9 @@ Docker merupakan cara paling praktis untuk menjalankan project ini di lokal. PHP
 Ambil URL clone dari repository GitHub yang sedang Anda baca, lalu jalankan:
 
 ```sh
-git clone <URL_REPOSITORY_INI> alwaysngoding
+git clone https://github.com/ZihxS/alwaysngoding alwaysngoding
 cd alwaysngoding
 ```
-
-`<URL_REPOSITORY_INI>` adalah placeholder yang harus diganti dengan URL repository atau fork Anda.
 
 Untuk langsung menyiapkan file environment dan menjalankan Docker, gunakan `make setup`. Langkah berikut menjelaskan pengaturan dan startup secara terpisah jika ingin menyesuaikan konfigurasi terlebih dahulu.
 
